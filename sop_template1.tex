@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% line spacing
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\parskip}{\baselineskip}%paragraph spacing
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+
+\makeatletter
+\newcommand*\uni{%
+   \@ifnextchar\bgroup
+      {\gdef\@uni}%
+      {\@uni}%
+}
+\newcommand*\program{%
+   \@ifnextchar\bgroup
+      {\gdef\@program}%
+      {\@program}%
+}
+\renewcommand{\@maketitle}{%
+  \parindent=0pt% don't indent paragraphs in the title block
+  \centering
+  {\LARGE \bfseries{\@author}}
+  \par
+  \@title \hfill \@uni, \@program\\
+  \vspace{-2ex}
+  \HRule
+  \par
+}
+\makeatother
+
+
+\title{Academic Statement of Purpose}
+\author{Author name}
+\uni{University}
+\program{Degree in Department}
+
+\makeatletter
+\let\runauthor\@author %make a copy
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0.4pt}
+  \fancyhf{}%
+  \fancyfoot[C]{\footnotesize Statement of Purpose - \runauthor \hfill Page \thepage\ of \pageref{LastPage}}%
+}
+\pagestyle{plain}% Set page style to plain.
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+
+\end{document}
